@@ -15,7 +15,7 @@
 //!
 //! # Example
 //! ```
-//! use with::with;
+//! use with_macro::with;
 //!
 //! let vec = with! {
 //!     mut Vec::new() =>

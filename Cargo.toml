@@ -1,7 +1,13 @@
 [package]
-name = "with"
+name = "with-macro"
 version = "0.1.0"
 authors = ["darkstalker <slayerbeast@gmail.com>"]
+description = "Syntactic sugar for calling methods"
+documentation = "https://docs.rs/with-macro"
+repository = "https://github.com/darkstalker/with-macro"
+readme = "README.md"
+keywords = ["with", "macro", "builder"]
+license = "MIT"
 edition = "2018"
 
 [dependencies]
