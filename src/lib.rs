@@ -37,14 +37,14 @@ macro_rules! with {
     // mut expr => ...
     (mut $obj:expr => $($body:tt)*) => ({
         let mut obj = $obj;
-        with!(@parse obj $($body)*);
+        $crate::with!(@parse obj $($body)*);
         obj
     });
 
     // expr => ...
     ($obj:expr => $($body:tt)*) => ({
         let obj = $obj;
-        with!(@parse obj $($body)*);
+        $crate::with!(@parse obj $($body)*);
         obj
     });
 
@@ -54,25 +54,25 @@ macro_rules! with {
     // .method(args..)
     (@parse $obj:ident . $method:ident ( $($args:expr),* ) $($tail:tt)*) => {
         $obj.$method($($args),*);
-        with!(@parse $obj $($tail)*)
+        $crate::with!(@parse $obj $($tail)*)
     };
 
     // let pat = .method(args..);
     (@parse $obj:ident let $var:pat = . $method:ident ( $($args:expr),* ) ; $($tail:tt)*) => {
         let $var = $obj.$method($($args),*);
-        with!(@parse $obj $($tail)*)
+        $crate::with!(@parse $obj $($tail)*)
     };
 
     // var = .method(args..);
     (@parse $obj:ident $var:ident = . $method:ident ( $($args:expr),* ) ; $($tail:tt)*) => {
         $var = $obj.$method($($args),*);
-        with!(@parse $obj $($tail)*)
+        $crate::with!(@parse $obj $($tail)*)
     };
 
     // arbitrary expresion
     (@parse $obj:ident $exp:expr ; $($tail:tt)*) => {
         $exp;
-        with!(@parse $obj $($tail)*)
+        $crate::with!(@parse $obj $($tail)*)
     }
 }
 
