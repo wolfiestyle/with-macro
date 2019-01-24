@@ -18,7 +18,7 @@ Anything else will be evaluated unmodified as an expression.
 ## Usage
 ```Rust
 use with_macro::with;
-//!
+
 let vec = with! {
     mut Vec::new() =>
         .push(1)
@@ -27,6 +27,6 @@ let vec = with! {
         let l = .len();
         assert_eq!(l, 3);
 };
-//!
+
 assert_eq!(vec, [1, 42, -13]);
 ```
